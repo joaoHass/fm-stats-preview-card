@@ -1,0 +1,180 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-inter: "Inter", sans-serif;
+  --ff-lexend: "Lexend Deca", sans-serif;
+}
+
+/* General styling */
+
+body,
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 0.938rem;
+  font-family: var(--ff-inter);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Classes */
+
+.cards {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background-color: hsl(233, 47%, 7%);
+}
+
+.card {
+  display: grid;
+  grid-template-rows: minmax(35%, 480px) 65%;
+  grid-template-areas:
+    "image"
+    "content";
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  height: 85vh;
+  max-height: 650px;
+  border-radius: 2%;
+  margin: 0 auto;
+  color: white;
+  background-color: hsl(244, 38%, 16%);
+}
+
+.img-wrapper {
+  position: relative;
+  grid-area: "image";
+  height: 100%;
+}
+
+.img-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(140, 53, 194, 0.35);
+}
+
+.card__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 2% 2% 0 0;
+}
+
+.card__info {
+  grid-area: "content";
+  align-self: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card__info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.7em;
+}
+
+.accent {
+  color: hsl(277, 64%, 61%);
+}
+
+.card__info__text p {
+  line-height: 1.5;
+  word-spacing: 0.03em;
+  margin-bottom: 2em;
+  color: hsla(0, 0%, 100%, 0.75);
+}
+
+.card__metrics {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__metrics__item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3em;
+}
+
+.card__metrics__item p {
+  font-size: 0.7rem;
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.card__metrics__item + .card__metrics__item {
+  margin-top: 1.6em;
+}
+
+/* If the screen's height is too small, the layout breaks */
+/* This media query help in these kind of situations */
+/* It helps as well with too small screens (width < 355px) */
+@media screen and (max-height: 680px) {
+  .card__metrics {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card__metrics__item.card__metrics__item {
+    margin: 0;
+  }
+}
+
+/* Switch to "portrait" mode */
+@media screen and (min-width: 660px) {
+  .card {
+    max-width: 900px;
+    height: 400px;
+    grid-template-rows: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "content-col image-col";
+    text-align: left;
+  }
+
+  .img-wrapper {
+    grid-area: image-col;
+  }
+
+  .img-wrapper::after,
+  .card__img {
+    border-radius: 0 2% 2% 0;
+  }
+
+  .card__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80%;
+    padding-right: 10%;
+    width: 80%;
+    grid-area: content-col;
+  }
+
+  .card__info h2 {
+    font-size: 1.78rem;
+  }
+
+  .card__metrics {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card__metrics__item.card__metrics__item {
+    margin: 0;
+  }
+}

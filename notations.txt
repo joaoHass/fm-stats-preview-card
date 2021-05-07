@@ -1,0 +1,14 @@
+
+I struggled a lot setting the height of each child, even tho everything was technically correct. The image kept staying with its default height no matter what I did, I even tried to switch to grid and nothing happened.
+
+What was happening is that I didn't set a proper height for the .card class, and because I was using percentages on the child elements, they were trying to reference to they parent's height, but it didn't actually had one, so they stick with their default values, making it look buggy and broken.
+
+I'm also trying to keep my code as simple and clean as possible, trying to reuse every bit of code that I can, and refactoring it so it stay at least in order (relative to the HTML order), making it easier to read and look for things in the code.
+
+--
+
+I switched the .card from flex to grid, it made a lot easier to switch from the mobile (landscape) layout to the desktop (portrait) layout, as I only need to switch the grid areas to change the child inside .card.
+
+I added another media query to prevent (to a certain point) the layout from breaking with too short (low height) screens. This is necessary because I'm using vh to define the starting value of .card, as I'm not interested in scrolling down to see the rest of the card (not in this particular case, at least).
+
+Final considerations: I made the card responsible, but I don't think it was the right approach, as mine was designed to have only one card per-line, when I think it should have more then one, until it reaches de desktop breakpoint, making then one card per line. But I'm content with the final result, there are a lot of things that I can improve, make the code cleaner and simpler, but it was a good experiment. Btw I took more than 3 hours to make it, when I was expecting something around 30 minutes, that image really stuck me lol.
