@@ -11,6 +11,7 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+  - [How I built it](#how-i-built-it)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
